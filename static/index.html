@@ -4,13 +4,78 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="Description" content="Osh was here.">
-  <title>Osh was here</title>
+  <title>Osh was here o/</title>
+  <style>
+    header > ul {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    header > ul > li {
+      display: inline-block;
+      padding: 0.5em;
+    }
+  </style>
 </head>
 <body>
-  <h1>Osh was here o/</h1>
+<header>
   <ul>
-    <li><a href=https://github.com/oshdev>oshdev on GitHub</a></li>
-    <li><a href=https://twitter.com/oshdev>@oshdev on Twitter</a></li>
+    <li><a href="https://github.com/oshdev">oshdev on GitHub</a></li>
+    <li><a href="https://twitter.com/oshdev">@oshdev on Twitter</a></li>
   </ul>
+</header>
+
+<h1>Is this a blog?</h1>
+<time datetime="2021-07-12">Tuesday, 13th of July 2021</time>
+
+<p>What do engineers do when they have time and want to create something? A blog! I don't know why... but here it
+  is. <abbr title="Yet Another Blog">YAB</abbr>.</p>
+<p>Devs create blogs to talk about some dev stuff, I guess, and my one will
+  not be any different... My first blog post will be about creating a blog (also like a bunch of other devs).</p>
+
+<hr />
+
+<p>I often see people pack their blogs with high-tech stuff. Trendy technologies, newest frameworks, current best thing
+  there is today, etc... I don't think there's anything wrong with that. I actually think that might be exactly what
+  what I'm gonna do at some point - create individual blog posts using different technologies and describing the process
+  and some reflections.</p>
+
+<p>But not right now. I was thinking of starting with the plain old HTML and CSS. I like Just as I'm writing this text,
+  I already can see how easily I could utilise some of the tech that I use on a daily basis at work. First thought was
+  the date of this very post - I can easily see at one point in the not-so-distant future feeling like changing the
+  format. And (assuming I'd write a bunch of other posts) what do I do then? Sure, I could programmatically change them
+  all, sounds like a fun 5 minutes regex find and replace task, but you know... YAGNI.</p>
+
+<hr />
+
+<p><em>So what do I actually want?</em> I want it to be constructed by writing semantic HTML and styled nicely with CSS.
+  I think I also want to enrich it with some funky SVGs for the links in the heading. In terms of styling I want some
+  decent dark and light scheme and I want it to be working nicely on various media.</p>
+
+<p>I defo want it to be accessible, but I know little about this subject or at least I feel like I know not enough.
+  Having the website use simple and semantic stuff certainly helps.</p>
+
+<p>I also want it to have nice CI. I mean, I already do. This website is hosted by <a href="https://www.netlify.com/">Netlify</a>.
+  As it's a static page their free offering is just fine with nice <a href="https://github.com">GitHub</a> integration.
+  All I have to do is commit to the main branch, push it to the upstream and it's gotta go live.</p>
+
+<p>Do I need any preprocessing? I don't think I do at this stage. I could minify this, but there's virtually no
+  gain.</p>
+
+<p>Testing? There's no logic here, no build that needs to be verified. The only thing is to check if the website is up.
+  If it isn't, then... Well not great, but I ain't gonna lose millions every minute. Perhaps I can use <a
+    href="https://docs.github.com/en/actions"
+  >GitHub Actions</a> and run a synthetic.</p>
+
+<p>Talking of availability, I'll have a look at some CDN. Fastly or Cloudflare or something. There might have some free
+  tier for a blog site that maybe gets a visit once a month, but when it does, it could be nice and fast, no matter
+  where requested from.</p>
+
+<p>Last, but not least - features! I don't think I need anything in particular. The only thing that comes to my mind is a comments section, which I don't think is valuable at this stage. Feel free to Tweet at me ;]</p>
+
+<hr/>
+
+<p>I think there will be more, but that's it for the moment. I'll give it another thought later.</p>
+
 </body>
 </html>
