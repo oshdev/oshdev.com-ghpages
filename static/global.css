@@ -1,0 +1,96 @@
+:root {
+  --font-size: 1.2em;
+  --line-height: 1.5em;
+  --main-font: Roboto, sans-serif;
+  --heading-font: Felipa, sans;
+  --mono-font: "Fira Code", monospace;
+}
+
+:root[theme=dark] {
+  --bg-colour: #191a21;
+  --text-colour: #557d9b;
+  --text-colour-75p: #557d9bc0;
+  --link-colour: #79cbdc;
+  --link-colour-active: #80ffea;
+}
+
+:root[theme=light] {
+  --bg-colour: #ddddff;
+  --text-colour: #000000;
+  --text-colour-75p: #000c0;
+  --link-colour: #4444ff;
+  --link-colour-active: #4444dd;
+}
+
+body {
+  background: var(--bg-colour);
+  color: var(--text-colour);
+  font-family: var(--main-font);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+}
+
+h1, h2, h3 {
+  font-family: var(--heading-font);
+}
+
+code, kbd, pre {
+  font-family: var(--mono-font);
+}
+
+time {
+  font-size: 0.9em;
+}
+
+hr {
+  border: 0;
+  height: 0.2em;
+  background-image: linear-gradient(to right, #0000, var(--text-colour-75p), #0000);
+}
+
+a, a:visited {
+  text-decoration: none;
+  color: var(--link-colour);
+}
+
+a:hover, a:focus, a:active {
+  text-decoration: underline;
+  color: var(--link-colour-active);
+}
+
+header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+header > div {
+  display: inline-block;
+}
+
+header ul {
+  padding: 0;
+  margin: 0;
+}
+
+header ul > li {
+  display: inline-block;
+  padding: 0 10px;
+}
+
+footer {
+  font-size: 0.8em;
+}
+
+svg {
+  fill: var(--text-colour)
+}
+
+#theme-switcher button {
+  background: transparent;
+  border: none;
+}
+
+#theme-switcher svg {
+  width: 24px;
+  height: 24px;
+}
