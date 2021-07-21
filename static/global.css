@@ -7,14 +7,16 @@
 }
 
 :root[theme=dark] {
-  --el0: #121016;
-  --el1: #26232b;
+  --el0: #02050c;
+  --el1: #16232b;
   --el2: #333333;
-  --primary: #d16adb;
+  --primary: #9a46f3;
   --primary-light: #ec8df1;
 
-  --text-colour: #b0b1c1;
-  --text-colour-75p: #b0b1c1c0;
+  --text-primary: #c8d8de;
+  --text-primary-75p: #c8d8dec0;
+  --text-secondary: #acb9be;
+  --text-secondary-75p: #acb9bec0;
   --link-colour: var(--primary);
   --link-colour-active: var(--primary-light);
 }
@@ -29,8 +31,10 @@
 
 :root[theme=light] {
   --bg-colour: #ddddff;
-  --text-colour: #000000;
-  --text-colour-75p: #000c0;
+  --text-primary: #02050c;
+  --text-primary-75p: #02050cc0;
+  --text-secondary: #16171a;
+  --text-secondary-75p: #16171ac0;
   --link-colour: #4444ff;
   --link-colour-active: #4444dd;
 }
@@ -42,7 +46,7 @@ html, body, ol, ul, li, button, input {
 
 body {
   background-color: var(--el0);
-  color: var(--text-colour);
+  color: var(--text-primary);
   font-family: var(--main-font);
   font-size: var(--font-size);
   line-height: var(--line-height);
@@ -63,7 +67,7 @@ time {
 hr {
   border: 0;
   height: 0.1em;
-  background-image: linear-gradient(to right, #0000, var(--text-colour-75p), #0000);
+  background-image: linear-gradient(to right, #0000, var(--text-primary-75p), #0000);
 }
 
 a, a:visited {
@@ -77,7 +81,7 @@ a:hover, a:focus, a:active {
 }
 
 svg {
-  fill: var(--text-colour);
+  fill: var(--text-primary);
 }
 
 header {
