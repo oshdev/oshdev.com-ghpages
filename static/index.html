@@ -23,10 +23,7 @@
     </ul>
   </nav>
   <section class="theme-switcher">
-    <button data-theme="dark"
-      onclick="document.documentElement.setAttribute('theme', 'dark'); document.cookie='theme=dark'"
-      aria-labelledby="dark-theme-switcher-title"
-    >
+    <button data-theme="dark" onclick="setTheme('dark')" aria-labelledby="dark-theme-switcher-title">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
       ><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) -->
         <title id="dark-theme-switcher-title">Enable dark theme</title>
@@ -35,10 +32,7 @@
         />
       </svg>
     </button>
-    <button data-theme="light"
-      onclick="document.documentElement.setAttribute('theme', 'light'); document.cookie='theme=light'"
-      aria-labelledby="light-theme-switcher-title"
-    >
+    <button data-theme="light" onclick="setTheme('light')" aria-labelledby="light-theme-switcher-title">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
       ><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) -->
         <title id="light-theme-switcher-title">Enable light theme</title>
@@ -53,47 +47,49 @@
 <div id="main">
   <main>
     <h1 class="a">Is this a blog?</h1>
-    <time datetime="2021-07-12">Tuesday, 13th of July 2021</time>
+    <article>
+      <time datetime="2021-07-12">13th of July 2021</time>
 
-    <p>What do engineers do when they have time and want to create something? A blog! I don't know why... but here it is.
-      <abbr title="Yet Another Blog">YAB</abbr>.</p>
+      <p>What do engineers do when they have time and want to create something? A blog! I don't know why... but here it is.
+        <abbr title="Yet Another Blog">YAB</abbr>.</p>
 
-    <p>Devs create blogs to talk about some dev stuff, I guess, and my one will not be any different... My first blog post will be about creating a blog (also like a bunch of other devs).</p>
+      <p>Devs create blogs to talk about some dev stuff, I guess, and my one will not be any different... My first blog post will be about creating a blog (also like a bunch of other devs).</p>
 
-    <hr />
+      <hr />
 
-    <p>I often see people pack their blogs with high-tech stuff. Trendy technologies, newest frameworks, current best thing there is today, etc... I don't think there's anything wrong with that. I actually think that might be exactly what what I'm gonna do at some point - create individual blog posts using different technologies and describing the process and some reflections.</p>
+      <p>I often see people pack their blogs with high-tech stuff. Trendy technologies, newest frameworks, current best thing there is today, etc... I don't think there's anything wrong with that. I actually think that might be exactly what what I'm gonna do at some point - create individual blog posts using different technologies and describing the process and some reflections.</p>
 
-    <p>But not right now. I was thinking of starting with the plain old HTML and CSS. I like Just as I'm writing this text, I already can see how easily I could utilise some of the tech that I use on a daily basis at work. First thought was the date of this very post - I can easily see at one point in the not-so-distant future feeling like changing the format. And (assuming I'd write a bunch of other posts) what do I do then? Sure, I could programmatically change them all, sounds like a fun 5 minutes regex find and replace task, but you know... YAGNI.</p>
+      <p>But not right now. I was thinking of starting with the plain old HTML and CSS. I like Just as I'm writing this text, I already can see how easily I could utilise some of the tech that I use on a daily basis at work. First thought was the date of this very post - I can easily see at one point in the not-so-distant future feeling like changing the format. And (assuming I'd write a bunch of other posts) what do I do then? Sure, I could programmatically change them all, sounds like a fun 5 minutes regex find and replace task, but you know... YAGNI.</p>
 
-    <hr />
+      <hr />
 
-    <p>
-      <em>So what do I actually want?</em> I want it to be constructed by writing semantic HTML and styled nicely with CSS. I think I also want to enrich it with some funky SVGs for the links in the heading. In terms of styling I want some decent dark and light scheme and I want it to be working nicely on various media.
-    </p>
+      <p>
+        <em>So what do I actually want?</em> I want it to be constructed by writing semantic HTML and styled nicely with CSS. I think I also want to enrich it with some funky SVGs for the links in the heading. In terms of styling I want some decent dark and light scheme and I want it to be working nicely on various media.
+      </p>
 
-    <p>I defo want it to be accessible, but I know little about this subject or at least I feel like I know not enough. Having the website use simple and semantic stuff certainly helps.</p>
+      <p>I defo want it to be accessible, but I know little about this subject or at least I feel like I know not enough. Having the website use simple and semantic stuff certainly helps.</p>
 
-    <p>I also want it to have nice CI. I mean, I already do. This website is hosted by <a
-      href="https://www.netlify.com/"
-    >Netlify</a>. As it's a static page their free offering is just fine with nice <a href="https://github.com"
-    >GitHub</a> integration. All I have to do is commit to the main branch, push it to the upstream and it's gotta go live.
-    </p>
+      <p>I also want it to have nice CI. I mean, I already do. This website is hosted by <a
+        href="https://www.netlify.com/"
+      >Netlify</a>. As it's a static page their free offering is just fine with nice <a href="https://github.com"
+      >GitHub</a> integration. All I have to do is commit to the main branch, push it to the upstream and it's gotta go live.
+      </p>
 
-    <p>Do I need any preprocessing? I don't think I do at this stage. I could minify this, but there's virtually no gain.</p>
+      <p>Do I need any preprocessing? I don't think I do at this stage. I could minify this, but there's virtually no gain.</p>
 
-    <p>Testing? There's no logic here, no build that needs to be verified. The only thing is to check if the website is up. If it isn't, then... Well not great, but I ain't gonna lose millions every minute. Perhaps I can use
-      <a href="https://docs.github.com/en/actions">GitHub Actions</a> and run a synthetic.</p>
+      <p>Testing? There's no logic here, no build that needs to be verified. The only thing is to check if the website is up. If it isn't, then... Well not great, but I ain't gonna lose millions every minute. Perhaps I can use
+        <a href="https://docs.github.com/en/actions">GitHub Actions</a> and run a synthetic.</p>
 
-    <p>Talking of availability, I'll have a look at some CDN. Fastly or Cloudflare or something. There might have some free tier for a blog site that maybe gets a visit once a month, but when it does, it could be nice and fast, no matter where requested from.</p>
+      <p>Talking of availability, I'll have a look at some CDN. Fastly or Cloudflare or something. There might have some free tier for a blog site that maybe gets a visit once a month, but when it does, it could be nice and fast, no matter where requested from.</p>
 
-    <p>Last, but not least - features! I don't think I need anything in particular. The only thing that comes to my mind is a comments section, which I don't think is valuable at this stage. Feel free to Tweet at me ;]</p>
+      <p>Last, but not least - features! I don't think I need anything in particular. The only thing that comes to my mind is a comments section, which I don't think is valuable at this stage. Feel free to Tweet at me ;]</p>
 
-    <hr />
+      <hr />
 
-    <p>I think there will be more, but that's it for the moment. I'll give it another thought later.</p>
+      <p>I think there will be more, but that's it for the moment. I'll give it another thought later.</p>
 
-    <p>Thanks for reading <3</p>
+      <p>Thanks for reading <3</p>
+    </article>
   </main>
 </div>
 

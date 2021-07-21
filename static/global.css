@@ -1,5 +1,5 @@
 :root {
-  --font-size: 1.4em;
+  --font-size: 1.2em;
   --line-height: 1.5em;
   --main-font: Roboto, sans-serif;
   --heading-font: Felipa, sans;
@@ -8,9 +8,10 @@
 
 :root[theme=dark] {
   --el0: #02050c;
-  --el1: #16232b;
+  --el1: #0a0f15;
   --el2: #333333;
-  --primary: #9a46f3;
+  --primary: #ad60fd;
+  --primary-dark: #6223a5;
   --primary-light: #ec8df1;
 
   --text-primary: #c8d8de;
@@ -19,6 +20,37 @@
   --text-secondary-75p: #acb9bec0;
   --link-colour: var(--primary);
   --link-colour-active: var(--primary-light);
+
+  --button-neutral: #204e9d;
+  --button-neutral-border: #095def;
+  --button-positive: #126627;
+  --button-positive-border: #0abf36;
+  --button-negative: #ca4129;
+  --button-negative-border: #bc2206;
+}
+
+:root[theme=light] {
+  --el0: #eeeeff;
+  --el1: #e2e2f5;
+  --el2: #c8dff3;
+  --primary: #3131c4;
+  --primary-dark: #22229b;
+  --primary-light: #3b3bf8;
+
+
+  --text-primary: #02050c;
+  --text-primary-75p: #02050cc0;
+  --text-secondary: #16171a;
+  --text-secondary-75p: #16171ac0;
+  --link-colour: var(--primary);
+  --link-colour-active: var(--primary-light);
+
+  --button-neutral: #5388e2;
+  --button-neutral-border: #296ce2;
+  --button-positive: #3cc15d;
+  --button-positive-border: #0f9630;
+  --button-negative: #ca4129;
+  --button-negative-border: #bc2206;
 }
 
 [theme=dark] [data-theme=dark] {
@@ -27,16 +59,6 @@
 
 [theme=light] [data-theme=light] {
   display: none;
-}
-
-:root[theme=light] {
-  --bg-colour: #ddddff;
-  --text-primary: #02050c;
-  --text-primary-75p: #02050cc0;
-  --text-secondary: #16171a;
-  --text-secondary-75p: #16171ac0;
-  --link-colour: #4444ff;
-  --link-colour-active: #4444dd;
 }
 
 html, body, ol, ul, li, button, input {
@@ -54,6 +76,7 @@ body {
 
 h1, h2, h3 {
   font-family: var(--heading-font);
+  text-decoration: underline 1px var(--primary-dark);
 }
 
 code, kbd, pre {
@@ -66,8 +89,8 @@ time {
 
 hr {
   border: 0;
-  height: 0.1em;
-  background-image: linear-gradient(to right, #0000, var(--text-primary-75p), #0000);
+  height: 1px;
+  background-image: linear-gradient(to right, #0000, var(--primary-dark), #0000);
 }
 
 a, a:visited {
@@ -89,9 +112,10 @@ header {
   top: 0;
   width: 100%;
   background-color: var(--el1);
+  border-bottom: 1px solid var(--primary-dark);
+  opacity: 0.9;
   display: flex;
   justify-content: flex-end;
-  opacity: 0.9;
 }
 
 header > nav {
@@ -141,10 +165,53 @@ main {
 
 footer {
   display: flex;
-  font-size: 0.8em;
+  font-size: 0.7em;
   justify-content: center;
+  background: linear-gradient(var(--el1), var(--el0));
+  padding-bottom: 5em;
+  border-top: 1px solid var(--primary-dark);
 }
 
 footer > span {
-  padding: 0.3em 2em;
+  padding: 1em 3em;
+}
+
+article {
+  background-color: var(--el1);
+  padding: 1em;
+  border: 1px solid var(--primary-dark);
+  border-radius: 6px;
+  margin: 2em 0;
+}
+
+button {
+  border-radius: 6px;
+  border: 2px solid;
+  padding: 1em;
+  color: var(--text-primary);
+  font-weight: bolder;
+}
+
+article > section {
+  display: flex;
+  justify-content: flex-end;
+}
+
+article > section > button {
+  margin: 0 2em;
+}
+
+.btn-neutral {
+  background-color: var(--button-neutral);
+  border-color: var(--button-neutral-border);
+}
+
+.btn-positive {
+  background-color: var(--button-positive);
+  border-color: var(--button-positive-border);
+}
+
+.btn-negative {
+  background-color: var(--button-negative);
+  border-color: var(--button-negative-border);
 }

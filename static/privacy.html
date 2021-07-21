@@ -23,10 +23,7 @@
     </ul>
   </nav>
   <section class="theme-switcher">
-    <button data-theme="dark"
-      onclick="document.documentElement.setAttribute('theme', 'dark'); document.cookie='theme=dark'"
-      aria-labelledby="dark-theme-switcher-title"
-    >
+    <button data-theme="dark" onclick="setTheme('dark')" aria-labelledby="dark-theme-switcher-title">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
       ><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) -->
         <title id="dark-theme-switcher-title">Enable dark theme</title>
@@ -35,10 +32,7 @@
         />
       </svg>
     </button>
-    <button data-theme="light"
-      onclick="document.documentElement.setAttribute('theme', 'light'); document.cookie='theme=light'"
-      aria-labelledby="light-theme-switcher-title"
-    >
+    <button data-theme="light" onclick="setTheme('light')" aria-labelledby="light-theme-switcher-title">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
       ><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) -->
         <title id="light-theme-switcher-title">Enable light theme</title>
@@ -52,7 +46,17 @@
 
 <div id="main">
   <main>
-    <p>Hey, I value your privacy! The only cookie in use right now is a functional one - if you set your theme. I don't even read it beyond the browser.</p>
+    <article class="blog-post">
+      <p>Hey, I value your privacy! This site is using a couple of functional cookies to make it work, for instance to remember your preferred theme.</p>
+    </article>
+
+    <article>
+      <p>If you don't mind, please let me store some Google Analytics cookies, so I have some insight into tech and demographics</p>
+      <section>
+        <button class="btn-neutral" onclick="disableAnalytics()">disable analytics</button>
+        <button class="btn-positive" onclick="enableAnalytics()">enable analytics</button>
+      </section>
+    </article>
   </main>
 </div>
 
