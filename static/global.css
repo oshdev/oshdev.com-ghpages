@@ -132,32 +132,25 @@ header li,
 header button,
 header button:hover,
 header button:active {
-  border: 0;
-  padding: 0.4em;
+  border: none;
+  padding: 0;
+  background: transparent;
   box-shadow: none;
 }
 
-button > svg {
-  filter: drop-shadow(1px 1px 2px var(--primary-dark))
-}
-
-header ul > li {
+header ul > li,
+footer ul > li {
   display: inline-block;
 }
 
-.theme-switcher button {
-  background: transparent;
-  border: none;
-}
-
-.theme-switcher svg {
+header svg {
   width: 24px;
   height: 24px;
   padding: 0.3em;
   fill: var(--link-colour);
 }
 
-.theme-switcher svg:hover {
+header svg:hover {
   fill: var(--link-colour-active);
   cursor: pointer;
 }
@@ -173,16 +166,19 @@ main {
 }
 
 footer {
-  display: flex;
   font-size: 0.7em;
-  justify-content: center;
   background: linear-gradient(var(--el1), var(--el0));
   padding-bottom: 5em;
   border-top: 1px solid var(--primary-dark);
 }
 
-footer > span {
-  padding: 1em 3em;
+footer > ul {
+  display: flex;
+  justify-content: center;
+}
+
+footer > ul > li {
+  padding: 1em 2em;
 }
 
 article {
