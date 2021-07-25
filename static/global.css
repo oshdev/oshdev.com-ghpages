@@ -6,6 +6,7 @@
   --mono-font: "Fira Code", monospace;
 }
 
+:root,
 :root[theme=dark] {
   --el0: #02050c;
   --el1: #0a0f15;
@@ -51,6 +52,56 @@
   --button-positive-border: #0f9630;
   --button-negative: #ca4129;
   --button-negative-border: #bc2206;
+}
+
+@media (prefers-color-scheme: light) {
+  :root,
+  :root[theme=light] {
+    --el0: #eeeeff;
+    --el1: #e2e2f5;
+    --el2: #c8dff3;
+    --primary: #3131c4;
+    --primary-dark: #22229b;
+    --primary-light: #3b3bf8;
+
+
+    --text-primary: #02050c;
+    --text-primary-75p: #02050cc0;
+    --text-secondary: #16171a;
+    --text-secondary-75p: #16171ac0;
+    --link-colour: var(--primary);
+    --link-colour-active: var(--primary-light);
+
+    --button-neutral: #5388e2;
+    --button-neutral-border: #296ce2;
+    --button-positive: #3cc15d;
+    --button-positive-border: #0f9630;
+    --button-negative: #ca4129;
+    --button-negative-border: #bc2206;
+  }
+
+  :root[theme=dark] {
+    --el0: #02050c;
+    --el1: #0a0f15;
+    --el2: #333333;
+    --primary: #ad60fd;
+    --primary-dark: #6223a5;
+    --primary-light: #ec8df1;
+
+    --text-primary: #c8d8de;
+    --text-primary-75p: #c8d8dec0;
+    --text-secondary: #acb9be;
+    --text-secondary-75p: #acb9bec0;
+    --link-colour: var(--primary);
+    --link-colour-active: var(--primary-light);
+
+    --button-neutral: #204e9d;
+    --button-neutral-border: #095def;
+    --button-positive: #126627;
+    --button-positive-border: #0abf36;
+    --button-negative: #ca4129;
+    --button-negative-border: #bc2206;
+  }
 }
 
 [theme=dark] [data-theme=dark] {
