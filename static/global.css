@@ -104,6 +104,14 @@
   }
 }
 
+#theme-switcher {
+  display: none;
+}
+
+[theme] #theme-switcher {
+  display: initial;
+}
+
 [theme=dark] [data-theme=dark] {
   display: none;
 }
