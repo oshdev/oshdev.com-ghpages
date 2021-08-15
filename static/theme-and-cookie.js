@@ -32,7 +32,6 @@ function setTheme(theme) {
 
   const cookieTheme = checkTheme(eatCookie('theme'))
   const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-  console.log('>>>', {cookieTheme, systemTheme})
   const theme = cookieTheme ? cookieTheme : systemTheme ? systemTheme : 'dark'
   document.documentElement.setAttribute('theme', theme)
 }())

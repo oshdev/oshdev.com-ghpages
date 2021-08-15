@@ -21,13 +21,14 @@
   --text-secondary-75p: #acb9bec0;
   --link-colour: var(--primary);
   --link-colour-active: var(--primary-light);
-
-  --button-neutral: #204e9d;
-  --button-neutral-border: #095def;
-  --button-positive: #126627;
-  --button-positive-border: #0abf36;
-  --button-negative: #ca4129;
-  --button-negative-border: #bc2206;
+  
+  /* @todo change those into button specific and make use of light/dark accents */
+  --neutral: #204e9d;
+  --neutral-border: #095def;
+  --positive: #126627;
+  --positive-border: #0abf36;
+  --negative: #ca4129;
+  --negative-border: #bc2206;
 }
 
 :root[theme=light] {
@@ -46,12 +47,12 @@
   --link-colour: var(--primary);
   --link-colour-active: var(--primary-light);
 
-  --button-neutral: #5388e2;
-  --button-neutral-border: #296ce2;
-  --button-positive: #3cc15d;
-  --button-positive-border: #0f9630;
-  --button-negative: #ca4129;
-  --button-negative-border: #bc2206;
+  --neutral: #5388e2;
+  --neutral-border: #296ce2;
+  --positive: #3cc15d;
+  --positive-border: #0f9630;
+  --negative: #ca4129;
+  --negative-border: #bc2206;
 }
 
 @media (prefers-color-scheme: light) {
@@ -72,12 +73,12 @@
     --link-colour: var(--primary);
     --link-colour-active: var(--primary-light);
 
-    --button-neutral: #5388e2;
-    --button-neutral-border: #296ce2;
-    --button-positive: #3cc15d;
-    --button-positive-border: #0f9630;
-    --button-negative: #ca4129;
-    --button-negative-border: #bc2206;
+    --neutral: #5388e2;
+    --neutral-border: #296ce2;
+    --positive: #3cc15d;
+    --positive-border: #0f9630;
+    --negative: #ca4129;
+    --negative-border: #bc2206;
   }
 
   :root[theme=dark] {
@@ -95,12 +96,12 @@
     --link-colour: var(--primary);
     --link-colour-active: var(--primary-light);
 
-    --button-neutral: #204e9d;
-    --button-neutral-border: #095def;
-    --button-positive: #126627;
-    --button-positive-border: #0abf36;
-    --button-negative: #ca4129;
-    --button-negative-border: #bc2206;
+    --neutral: #204e9d;
+    --neutral-border: #095def;
+    --positive: #126627;
+    --positive-border: #0abf36;
+    --negative: #ca4129;
+    --negative-border: #bc2206;
   }
 }
 
@@ -277,16 +278,16 @@ article > section > button {
 }
 
 .btn-neutral {
-  background-color: var(--button-neutral);
-  border-color: var(--button-neutral-border);
+  background-color: var(--neutral);
+  border-color: var(--neutral-border);
 }
 
 .btn-positive {
-  background-color: var(--button-positive);
-  border-color: var(--button-positive-border);
+  background-color: var(--positive);
+  border-color: var(--positive-border);
 }
 
 .btn-negative {
-  background-color: var(--button-negative);
-  border-color: var(--button-negative-border);
+  background-color: var(--negative);
+  border-color: var(--negative-border);
 }
