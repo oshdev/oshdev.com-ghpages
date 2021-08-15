@@ -20,4 +20,4 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
         with:
-          payload: '{"ref":"${{github.ref}}","sha":"github.sha","outcome":${{steps.ping.outcome}}}'
+          payload: '{"ref":"${{github.ref}}","sha":"github.sha","outcome":"${{steps.ping.outcome}}}"'
