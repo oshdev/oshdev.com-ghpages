@@ -126,6 +126,8 @@
     <h1>Tests</h1>
     <script>
       ;(() => {
+        const originalThemeCookie = eatCookie('theme')
+
         const main = document.getElementsByTagName('main')[0]
         const themes = createSuite('themes')
         main.appendChild(themes)
@@ -156,30 +158,36 @@
           if (expected !== actual) throw { expected, actual }
         })
 
-        const testCases = [
+        ;[
           { test: 'dark', expected: dark },
           { test: 'light', expected: light },
           { test: 'unknown', expected: dark },
-        ]
-        testCases.forEach(({ test, expected }) =>
-          it(`selects theme based on the cookie theme=${test}`, themes, () => {
-            const originalValue = eatCookie('theme')
-            bakeCookie('theme', test)
+        ].forEach(({ test, expected }) => it(`selects theme based on the cookie theme=${test}`, themes, () => {
+          bakeCookie('theme', test)
 
-            updateTheme()
-            const actual = window.getComputedStyle(document.documentElement).getPropertyValue('--el0')
+          updateTheme()
+          const actual = window.getComputedStyle(document.documentElement).getPropertyValue('--el0')
 
-            if (originalValue) {
-              bakeCookie('theme', originalValue)
-            } else {
-              burnCookie('theme')
-            }
+          if (expected !== actual) throw { expected, actual }
+        }))
 
-            if (expected !== actual) throw { expected, actual }
-          }),
-        )
-      })
-      ()
+        ;[
+          { test: 'dark', expected: dark },
+          { test: 'light', expected: light },
+        ].forEach(({ test, expected }) => it(`switches theme to ${test} on user request`, themes, () => {
+          bakeCookie('theme', test === 'dark' ? 'light' : 'dark')
+
+          const button = document.querySelector(`[aria-labelledby="${test}-theme-switcher-title"]`)
+          button.click()
+
+          const actual = window.getComputedStyle(document.documentElement).getPropertyValue('--el0')
+
+          if (expected !== actual) throw { expected, actual }
+        }))
+
+        originalThemeCookie ? bakeCookie('theme', originalThemeCookie) : burnCookie('theme')
+        updateTheme()
+      })()
     </script>
   </main>
 </div>
