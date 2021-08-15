@@ -99,7 +99,9 @@
         if (failDetails) {
           const error = document.createElement('pre')
           const { expected, actual } = failDetails
-          error.innerHTML = expected && actual ? `Expected: <span class="expected">${expected}</span>, actual: <span class="actual">${actual}</span>` : failDetails
+          error.innerHTML = expected && actual
+            ? `Expected: <span class="expected">${expected}</span>, actual: <span class="actual">${actual}</span>`
+            : failDetails
           infoNodes.unshift(error)
         }
 
@@ -123,11 +125,18 @@
 
     <h1>Tests</h1>
     <script>
-      const main = document.getElementsByTagName('main')[0]
-      const themes = createSuite('themes')
-      main.appendChild(themes)
+      ;(() => {
+        const main = document.getElementsByTagName('main')[0]
+        const themes = createSuite('themes')
+        main.appendChild(themes)
 
-      it('selects theme based on the user preferences', themes, () => {
+        const startTime = Date.now()
+        const globalCss = Array.from(document.styleSheets).
+          find(ss => ss.ownerNode.outerHTML === '<link rel="stylesheet" href="global.css">')
+        if (!globalCss) {
+          themes.append(...resultInfo(startTime, false, 'unable to find global CSS'))
+          return
+        }
         const getThemeEl0Colours = (css) => {
           const cssRules = Array.from(css.cssRules)
           const themeSelector = (colour) => (r) => r.selectorText === `:root, :root[theme="${colour}"]`
@@ -136,19 +145,41 @@
           const light = Array.from(lightRules).find(themeSelector('light')).style.getPropertyValue('--el0')
           return { dark, light }
         }
-
-        const globalCss = Array.from(document.styleSheets).
-          find(ss => ss.ownerNode.outerHTML === '<link rel="stylesheet" href="global.css">')
-        if (!globalCss) throw 'unable to find global CSS file'
         const { dark, light } = getThemeEl0Colours(globalCss)
 
-        let expected = dark
-        if (window.matchMedia('(prefers-color-scheme: light)').matches) expected = light
+        it('selects theme based on the user preferences', themes, () => {
+          let expected = dark // prefer dark unless user explicitly prefers light
+          if (window.matchMedia('(prefers-color-scheme: light)').matches) expected = light
 
-        const actual = window.getComputedStyle(document.documentElement).getPropertyValue('--el0')
+          const actual = window.getComputedStyle(document.documentElement).getPropertyValue('--el0')
 
-        if (expected !== actual) throw { expected, actual }
+          if (expected !== actual) throw { expected, actual }
+        })
+
+        const testCases = [
+          { test: 'dark', expected: dark },
+          { test: 'light', expected: light },
+          { test: 'unknown', expected: dark },
+        ]
+        testCases.forEach(({ test, expected }) =>
+          it(`selects theme based on the cookie theme=${test}`, themes, () => {
+            const originalValue = eatCookie('theme')
+            bakeCookie('theme', test)
+
+            updateTheme()
+            const actual = window.getComputedStyle(document.documentElement).getPropertyValue('--el0')
+
+            if (originalValue) {
+              bakeCookie('theme', originalValue)
+            } else {
+              burnCookie('theme')
+            }
+
+            if (expected !== actual) throw { expected, actual }
+          }),
+        )
       })
+      ()
     </script>
   </main>
 </div>
