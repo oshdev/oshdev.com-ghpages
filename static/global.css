@@ -3,11 +3,11 @@
   --line-height: 1.5em;
   --main-font: Roboto, sans-serif;
   --heading-font: Felipa, sans;
-  --mono-font: "Fira Code", monospace;
+  --mono-font: 'Fira Code', monospace;
 }
 
 :root,
-:root[theme=dark] {
+:root[theme='dark'] {
   --el0: #02050c;
   --el1: #0a0f15;
   --el2: #333333;
@@ -21,7 +21,7 @@
   --text-secondary-75p: #acb9bec0;
   --link-colour: var(--primary);
   --link-colour-active: var(--primary-light);
-  
+
   /* @todo change those into button specific and make use of light/dark accents */
   --neutral: #204e9d;
   --neutral-border: #095def;
@@ -31,14 +31,13 @@
   --negative-border: #bc2206;
 }
 
-:root[theme=light] {
+:root[theme='light'] {
   --el0: #eeeeff;
   --el1: #e2e2f5;
   --el2: #c8dff3;
   --primary: #3131c4;
   --primary-dark: #22229b;
   --primary-light: #3b3bf8;
-
 
   --text-primary: #02050c;
   --text-primary-75p: #02050cc0;
@@ -57,14 +56,13 @@
 
 @media (prefers-color-scheme: light) {
   :root,
-  :root[theme=light] {
+  :root[theme='light'] {
     --el0: #eeeeff;
     --el1: #e2e2f5;
     --el2: #c8dff3;
     --primary: #3131c4;
     --primary-dark: #22229b;
     --primary-light: #3b3bf8;
-
 
     --text-primary: #02050c;
     --text-primary-75p: #02050cc0;
@@ -81,7 +79,7 @@
     --negative-border: #bc2206;
   }
 
-  :root[theme=dark] {
+  :root[theme='dark'] {
     --el0: #02050c;
     --el1: #0a0f15;
     --el2: #333333;
@@ -113,15 +111,21 @@
   display: initial;
 }
 
-[theme=dark] [data-theme=dark] {
+[theme='dark'] [data-theme='dark'] {
   display: none;
 }
 
-[theme=light] [data-theme=light] {
+[theme='light'] [data-theme='light'] {
   display: none;
 }
 
-html, body, ol, ul, li, button, input {
+html,
+body,
+ol,
+ul,
+li,
+button,
+input {
   margin: 0;
   padding: 0;
 }
@@ -134,13 +138,17 @@ body {
   line-height: var(--line-height);
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: var(--heading-font);
   text-decoration: underline 1px var(--primary-dark);
   text-shadow: 0 0 40px var(--primary-light);
 }
 
-code, kbd, pre {
+code,
+kbd,
+pre {
   font-family: var(--mono-font);
 }
 
@@ -151,15 +159,23 @@ time {
 hr {
   border: 0;
   height: 1px;
-  background-image: linear-gradient(to right, #0000, var(--primary-dark), #0000);
+  background-image: linear-gradient(
+    to right,
+    #0000,
+    var(--primary-dark),
+    #0000
+  );
 }
 
-a, a:visited {
+a,
+a:visited {
   text-decoration: none;
   color: var(--link-colour);
 }
 
-a:hover, a:focus, a:active {
+a:hover,
+a:focus,
+a:active {
   text-decoration: underline;
   color: var(--link-colour-active);
 }

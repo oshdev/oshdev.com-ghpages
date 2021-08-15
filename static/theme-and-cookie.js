@@ -17,13 +17,12 @@ function burnCookie(name) {
 }
 
 function eatCookie(name) {
-  const cookie = document.cookie.split(';').find(c => c.trim().startsWith(name))
+  const cookie = document.cookie.split(';').find((c) => c.trim().startsWith(name))
   return cookie && decodeURIComponent(cookie.split('=', 2)[1].trim())
 }
 
 function updateTheme() {
-  const checkTheme = maybeTheme => ['light', 'dark'].includes(maybeTheme) ? maybeTheme : undefined
-
+  const checkTheme = (maybeTheme) => (['light', 'dark'].includes(maybeTheme) ? maybeTheme : undefined)
   const cookieTheme = checkTheme(eatCookie('theme'))
   const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
   const theme = cookieTheme ? cookieTheme : systemTheme ? systemTheme : 'dark'

@@ -8,17 +8,20 @@ function enableAnalytics() {
   const gTagSrc = document.createElement('script')
   gTagSrc.setAttribute('id', 'gTagSrc')
   gTagSrc.setAttribute('async', 'async')
-  gTagSrc.setAttribute('src', `https://www.googletagmanager.com/gtag/js?id=${gTagId}`)
+  gTagSrc.setAttribute(
+    'src',
+    `https://www.googletagmanager.com/gtag/js?id=${gTagId}`
+  )
   document.head.appendChild(gTagSrc)
 
-  window.dataLayer = window.dataLayer || [];
+  window.dataLayer = window.dataLayer || []
 
   function gtag() {
-    dataLayer.push(arguments);
+    dataLayer.push(arguments)
   }
 
-  gtag('js', new Date());
-  gtag('config', 'UA-60548914-1');
+  gtag('js', new Date())
+  gtag('config', 'UA-60548914-1')
 }
 
 function disableAnalytics() {
@@ -30,7 +33,6 @@ function disableAnalytics() {
   window.dataLayer = undefined
 }
 
-
 ;(function () {
   if (eatCookie('analyticsEnabled')) enableAnalytics()
-}())
+})()
