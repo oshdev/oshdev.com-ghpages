@@ -5,7 +5,7 @@ on:
     - cron: '15 9,21 * * *'
   workflow_dispatch:
   push:
-    branches: [main]
+    branches: [ main ]
 
 jobs:
   ping:
@@ -20,4 +20,5 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
         with:
-          payload: '{"ref":"${{github.ref}}","sha":"github.sha","outcome":"${{steps.ping.outcome}}"}'
+          channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
+          slack-message: '{"ref":"${{github.ref}}","sha":"github.sha","outcome":"${{steps.ping.outcome}}"}'
