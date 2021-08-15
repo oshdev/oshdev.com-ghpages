@@ -1,0 +1,12 @@
+name: Ping test
+
+on:
+  schedule:
+    - cron: '15 9,21 * * *'
+  workflow_dispatch:
+
+jobs:
+  ping:
+    timeout-minutes: 1
+    steps:
+      - run: curl --no-progress-meter https://oshdev.com | grep -c '<title>Osh was here o/</title>' &> /dev/null
