@@ -4,10 +4,20 @@ on:
   schedule:
     - cron: '15 9,21 * * *'
   workflow_dispatch:
+  push:
+    branches: [main]
 
 jobs:
   ping:
     runs-on: ubuntu-latest
     timeout-minutes: 1
     steps:
-      - run: curl --no-progress-meter https://oshdev.com | grep -c '<title>Osh was here o/</title>' &> /dev/null
+      - id: ping
+        run: curl --no-progress-meter https://oshdev.com | grep -c '<title>Osh was here o/</title>' &> /dev/null
+      - name: notify
+        if: always()
+        uses: slackapi/slack-github-action@v1.14.0
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+        with:
+          payload: '{"ref":"${{github.ref}}","sha":"github.sha","outcome":${{steps.ping.outcome}}}'
