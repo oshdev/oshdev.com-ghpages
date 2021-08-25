@@ -16,9 +16,13 @@ jobs:
         run: curl --no-progress-meter https://oshdev.com | grep -c '<title>Osh was here o/</title>' &> /dev/null
       - name: notify
         if: always()
-        uses: slackapi/slack-github-action@v1.14.0
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
-        with:
-          channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
-          slack-message: '{"ref":"${{github.ref}}","sha":"github.sha","outcome":"${{steps.ping.outcome}}"}'
+          SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
+          SLACK_MESSAGE: "ref: ${{ github.ref }},\n sha: ${{ github.sha}},\n outcome: ${{steps.ping.outcome}}"
+        run: |
+          curl -X POST --data-urlencode "payload={\
+            \"channel\": \"$SLACK_CHANNEL_ID\",\
+            \"username\": \"GitHub Actions Bot\",\
+            \"text\": \"$SLACK_MESSAGE\"\
+          }" $SLACK_WEBHOOK
