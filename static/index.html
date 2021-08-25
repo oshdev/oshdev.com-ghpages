@@ -252,6 +252,21 @@
             If you're really curious, just look at <a href="test.html">/test.html</a> (I didn't add it to the nav
             deliberately).
           </p>
+
+          <hr />
+
+          <p>
+            Uptime is tested with <a href="https://checklyhq.com">Checkly</a>. First time I used them, but they seem to
+            do the job and be solid enough (for the moment); and most of all - it's free (for my use-case)! It tests the
+            site on regular basis from multiple parts of the world. Was pretty easy to set it up (added a bunch of
+            <a href="https://playwright.dev">Playwright</a> tests) and if something fails, I'll get an email and a Slack
+            notification.
+          </p>
+
+          <p>
+            Additionally, there's a simple GitHub Action that pings the site and tests for a piece of text. Great
+            redundancy on synthetic tests 😅
+          </p>
         </article>
       </main>
     </div>
