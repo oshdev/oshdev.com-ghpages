@@ -25,4 +25,4 @@ jobs:
             \"channel\": \"$SLACK_CHANNEL_ID\",\
             \"username\": \"GitHub Actions Bot\",\
             \"text\": \"$SLACK_MESSAGE\"\
-          }" $SLACK_WEBHOOK
+          }" $SLACK_WEBHOOK_URL
